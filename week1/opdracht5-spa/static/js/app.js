@@ -16,9 +16,15 @@
             (!startHash) ? [startHash = "home", sections.toggle(startHash)] : (startHash ? startHash : startHash = startHash)
 
             //Add event hashchange listener to toggle function
-            window.addEventListener("hashchange", function(){
+            window.addEventListener("hashchange", function(){ // In plaats van Eventlistener kan je ook .onhashchage gebruiken
                 sections.toggle(location.hash.split("#")[1]);
             });
+            
+            //Zoals het volgende zou dit kunnen.
+            window.onhashchange = function(){
+				sections.toggle(location.hash.split("#")[1]);
+			};
+            
         }
     };
 
